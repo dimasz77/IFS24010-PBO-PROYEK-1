@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layouts/base}">
+<head><title>Form Tanaman</title></head>
+<body>
+<div layout:fragment="content">
+    <div class="row justify-content-center fade-in">
+        <div class="col-md-8 col-lg-6">
+            <div class="card border-0 shadow rounded-4">
+                <div class="card-header bg-white border-0 pt-4 px-4">
+                    <h4 class="fw-bold text-success mb-0">
+                        <i class="fas" th:classappend="${plant.id == null} ? 'fa-plus' : 'fa-edit'"></i>
+                        <span th:text="${plant.id == null} ? 'Tambah Tanaman Baru' : 'Edit Tanaman'">Form</span>
+                    </h4>
+                </div>
+                <div class="card-body p-4">
+                    
+                    <form th:action="@{/plants/save}" th:object="${plant}" method="post" enctype="multipart/form-data">
+                        <input type="hidden" th:field="*{id}">
+                        <input type="hidden" th:field="*{imagePath}">
+
+                        <!-- Nama -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold small text-muted">NAMA TANAMAN</label>
+                            <input type="text" th:field="*{name}" class="form-control" required placeholder="Contoh: Monstera">
+                        </div>
+
+                        <!-- Spesies -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold small text-muted">SPESIES / JENIS</label>
+                            <input type="text" th:field="*{species}" class="form-control" placeholder="Contoh: Araceae">
+                        </div>
+
+                        <!-- Frekuensi & Terakhir Disiram (Grid 2 Kolom) -->
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label fw-bold small text-muted">JADWAL SIRAM</label>
+                                <div class="input-group">
+                                    <input type="number" th:field="*{wateringFrequency}" class="form-control" required min="1">
+                                    <span class="input-group-text bg-light">Hari Sekali</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label fw-bold small text-muted">TERAKHIR DISIRAM</label>
+                                <!-- Input Type Date: Memungkinkan user memilih tanggal -->
+                                <input type="date" th:field="*{lastWatered}" class="form-control">
+                                <small class="text-muted" th:if="${plant.id == null}">*Otomatis hari ini jika dikosongkan</small>
+                            </div>
+                        </div>
+
+                        <!-- Foto -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold small text-muted">FOTO TANAMAN</label>
+                            <input type="file" name="imageFile" class="form-control" accept="image/*">
+                        </div>
+
+                        <!-- Deskripsi -->
+                        <div class="mb-4">
+                            <label class="form-label fw-bold small text-muted">DESKRIPSI / CATATAN</label>
+                            <textarea th:field="*{description}" class="form-control" rows="3"></textarea>
+                        </div>
+
+                        <!-- Tombol -->
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-success btn-lg rounded-pill fw-bold">SIMPAN DATA</button>
+                            <a th:href="@{/plants}" class="btn btn-light rounded-pill">Batal</a>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

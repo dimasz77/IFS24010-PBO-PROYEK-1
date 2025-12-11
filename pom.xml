@@ -132,7 +132,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
                     <argLine>
-                        @{argLine} 
+                        ${argLine}
                         -XX:+EnableDynamicAgentLoading 
                         -Xshare:off 
                         -Dnet.bytebuddy.experimental=true 
@@ -171,8 +171,7 @@
                         </goals>
                     </execution>
                     <execution>
-                        <id>check</id>
-                        <phase>verify</phase>
+                        <id>jacoco-check</id>
                         <goals>
                             <goal>check</goal>
                         </goals>

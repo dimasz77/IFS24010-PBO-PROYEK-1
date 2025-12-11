@@ -46,4 +46,3 @@ Proyek ini dibuat untuk tujuan **Pendidikan**.
 
 
 "# ifs24010-PBO-Proyek" 
-##UPDATE

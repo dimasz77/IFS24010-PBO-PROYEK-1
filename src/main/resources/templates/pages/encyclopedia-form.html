@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layouts/base}">
+<head><title>Form Ensiklopedia</title></head>
+<body>
+<div layout:fragment="content">
+    <div class="row justify-content-center fade-in">
+        <div class="col-md-8 col-lg-6">
+            <div class="card border-0 shadow rounded-4">
+                <div class="card-header bg-white border-0 pt-4 px-4">
+                    <h4 class="fw-bold text-warning mb-0">
+                        <i class="fas fa-book me-2"></i>Entri Ensiklopedia
+                    </h4>
+                </div>
+                <div class="card-body p-4">
+                    
+                    <form th:action="@{/encyclopedia/save}" th:object="${encyclopedia}" method="post" enctype="multipart/form-data">
+                        <input type="hidden" th:field="*{id}">
+                        <input type="hidden" th:field="*{imagePath}">
+
+                        <div class="mb-3">
+                            <label class="fw-bold small text-muted">NAMA SPESIES / TANAMAN</label>
+                            <input type="text" th:field="*{species}" class="form-control" required placeholder="Contoh: Lidah Buaya">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="fw-bold small text-muted">FOTO REFERENSI</label>
+                            <input type="file" name="imageFile" class="form-control" accept="image/*">
+                            <small class="text-muted" th:if="${encyclopedia.imagePath != null}">*Biarkan kosong jika tidak ingin ganti foto</small>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="fw-bold small text-muted">DESKRIPSI LENGKAP</label>
+                            <textarea th:field="*{description}" class="form-control" rows="4" placeholder="Jelaskan karakteristik tanaman..."></textarea>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="fw-bold small text-muted">TIPS PERAWATAN (DOS & DON'TS)</label>
+                            <textarea th:field="*{careTips}" class="form-control" rows="3" placeholder="Contoh: Jangan sering disiram, butuh cahaya matahari langsung..."></textarea>
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-warning rounded-pill fw-bold text-dark">SIMPAN ENTRI</button>
+                            <a th:href="@{/encyclopedia}" class="btn btn-light rounded-pill">Batal</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

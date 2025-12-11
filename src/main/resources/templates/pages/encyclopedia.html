@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layouts/base}">
+<head><title>Pusat Tips Tanaman</title></head>
+<body>
+<div layout:fragment="content">
+    
+    <!-- Header Section -->
+    <div class="row mb-5 fade-in text-center">
+        <div class="col-12">
+            <span class="badge bg-warning bg-opacity-10 text-warning mb-2 rounded-pill px-3">Knowledge Base</span>
+            <h2 class="fw-bold text-dark display-6">Tips Perawatan & Trik</h2>
+            <p class="text-muted col-md-8 mx-auto">
+                Kumpulan panduan praktis untuk menjaga tanamanmu tetap subur, sehat, dan bahagia di Laguboti.
+            </p>
+        </div>
+    </div>
+
+    <!-- LIST TIPS (Grid) -->
+    <div class="row g-4">
+        <div class="col-md-6 col-lg-4 fade-in" th:each="entry : ${entries}">
+            <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden hover-card">
+                
+                <!-- GAMBAR (Menggunakan URL Online dari Controller) -->
+                <div style="height: 220px; overflow: hidden; position: relative;">
+                    <img th:src="${entry.imagePath}" class="w-100 h-100 object-fit-cover transition-zoom">
+                    
+                    <div class="position-absolute top-0 end-0 p-3">
+                        <span class="badge bg-white text-dark shadow-sm rounded-pill">
+                            <i class="fas fa-star text-warning"></i> Tips Pro
+                        </span>
+                    </div>
+                </div>
+
+                <div class="card-body p-4">
+                    <!-- Judul Tips -->
+                    <h5 class="fw-bold text-dark mb-3" th:text="${entry.species}">Judul Tips</h5>
+                    
+                    <!-- Deskripsi -->
+                    <p class="text-muted small mb-4" style="line-height: 1.6;" th:text="${entry.description}">
+                        Deskripsi...
+                    </p>
+                    
+                    <!-- Box Tips Khusus -->
+                    <div class="bg-success bg-opacity-10 p-3 rounded-3 border border-success border-opacity-10">
+                        <div class="d-flex">
+                            <i class="fas fa-check-circle text-success mt-1 me-2"></i>
+                            <div>
+                                <small class="fw-bold text-success d-block mb-1">Poin Penting:</small>
+                                <small class="text-dark opacity-75" th:text="${entry.careTips}">Tips...</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Quote -->
+    <div class="row mt-5 fade-in">
+        <div class="col-12 text-center">
+            <div class="p-4 rounded-4 bg-light border border-dashed">
+                <p class="mb-0 fst-italic text-muted">
+                    "Merawat tanaman sama dengan merawat harapan." 🌿
+                </p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<th:block layout:fragment="others-css">
+    <style>
+        .hover-card { transition: all 0.3s ease; }
+        .hover-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important; }
+        
+        .transition-zoom { transition: transform 0.5s ease; }
+        .hover-card:hover .transition-zoom { transform: scale(1.1); }
+
+        .border-dashed { border-style: dashed !important; }
+    </style>
+</th:block>
+
+</body>
+</html>

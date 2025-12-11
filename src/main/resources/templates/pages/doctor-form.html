@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layouts/base}">
+<head><title>Form Diagnosa</title></head>
+<body>
+<div layout:fragment="content">
+    <div class="row justify-content-center fade-in">
+        <div class="col-md-8 col-lg-6">
+            <div class="card border-0 shadow rounded-4">
+                <div class="card-header bg-white border-0 pt-4 px-4">
+                    <h4 class="fw-bold text-danger mb-0">
+                        <i class="fas fa-stethoscope me-2"></i>Form Diagnosa
+                    </h4>
+                </div>
+                <div class="card-body p-4">
+                    
+                    <!-- PENTING: Tambahkan enctype agar bisa upload file -->
+                    <form th:action="@{/doctor/save}" th:object="${plantHealth}" method="post" enctype="multipart/form-data">
+                        
+                        <input type="hidden" th:field="*{id}">
+                        <input type="hidden" th:field="*{date}"> 
+                        <!-- Simpan path gambar lama agar tidak hilang saat edit tanpa ganti foto -->
+                        <input type="hidden" th:field="*{imagePath}">
+
+                        <div class="mb-3">
+                            <label class="fw-bold small text-muted">NAMA TANAMAN</label>
+                            <input type="text" th:field="*{plantName}" class="form-control" required>
+                        </div>
+
+                        <!-- INPUT GAMBAR -->
+                        <div class="mb-3">
+                            <label class="fw-bold small text-muted">FOTO KONDISI (OPSIONAL)</label>
+                            <input type="file" name="imageFile" class="form-control" accept="image/*">
+                            <small class="text-muted" th:if="${plantHealth.imagePath != null}">*Biarkan kosong jika tidak ingin mengubah foto</small>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="fw-bold small text-muted">GEJALA / MASALAH</label>
+                            <input type="text" th:field="*{issue}" class="form-control" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="fw-bold small text-muted">DIAGNOSA / TINDAKAN</label>
+                            <textarea th:field="*{diagnosis}" class="form-control" rows="3"></textarea>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="fw-bold small text-muted">STATUS</label>
+                            <select th:field="*{status}" class="form-select">
+                                <option value="Perawatan">Sedang Dalam Perawatan</option>
+                                <option value="Kritis">Kritis / Layu</option>
+                                <option value="Sembuh">Sudah Sembuh</option>
+                            </select>
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-danger rounded-pill fw-bold">SIMPAN CATATAN</button>
+                            <a th:href="@{/doctor}" class="btn btn-light rounded-pill">Batal</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

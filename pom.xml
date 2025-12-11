@@ -150,12 +150,6 @@
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.12</version>
-                <configuration>
-                    <excludes>
-                        <exclude>jdk/**</exclude>
-                        <exclude>java/**</exclude>
-                    </excludes>
-                </configuration>
                 <executions>
                     <execution>
                         <id>prepare-agent</id>
@@ -172,6 +166,7 @@
                     </execution>
                     <execution>
                         <id>jacoco-check</id>
+                        <phase>verify</phase>
                         <goals>
                             <goal>check</goal>
                         </goals>

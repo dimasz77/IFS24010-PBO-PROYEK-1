@@ -5,70 +5,57 @@
       lang="id">
 <head>
     <title>Dashboard - Plant Care</title>
+    <!-- Google Fonts untuk Typography Wisdom Card -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <div layout:fragment="content">
         
-        <!-- 1. HERO SECTION (Banner Utama) -->
+        <!-- 1. HERO SECTION (ORIGINAL) -->
         <div class="row mb-5 fade-in">
             <div class="col-12">
-                <!-- Background Gradient Premium -->
-                <div class="card border-0 shadow-lg rounded-5 overflow-hidden position-relative text-white" 
-                     style="min-height: 280px; background: linear-gradient(135deg, #0ba360 0%, #3cba92 100%);">
+                <div class="card border-0 shadow-lg rounded-5 overflow-hidden position-relative text-white hero-banner" 
+                     style="min-height: 320px; background: linear-gradient(135deg, #0ba360 0%, #3cba92 50%, #2dd4bf 100%);">
                     
                     <!-- Dekorasi Background -->
-                    <div class="position-absolute top-0 start-0 w-100 h-100" style="z-index: 0; pointer-events: none;">
-                        <i class="fas fa-seedling position-absolute text-white" 
-                           style="font-size: 20rem; left: -5rem; bottom: -8rem; opacity: 0.1; transform: rotate(20deg);"></i>
-                        <div class="position-absolute bg-white rounded-circle opacity-10" 
-                             style="width: 250px; height: 250px; top: -100px; right: 20%;"></div>
-                        <div class="position-absolute bg-warning rounded-circle opacity-10" 
-                             style="width: 80px; height: 80px; bottom: 40px; left: 40%;"></div>
+                    <div class="position-absolute top-0 start-0 w-100 h-100 decorative-bg" style="z-index: 0; pointer-events: none;">
+                        <i class="fas fa-seedling floating-plant-1" style="font-size: 22rem; left: -6rem; bottom: -9rem; opacity: 0.08; transform: rotate(15deg);"></i>
+                        <div class="floating-circle floating-circle-1" style="width: 280px; height: 280px; top: -120px; right: 15%;"></div>
+                        <div class="floating-circle floating-circle-2" style="width: 120px; height: 120px; bottom: -40px; left: 25%;"></div>
+                        <div class="sparkle sparkle-1" style="top: 15%; left: 30%;"></div>
+                        <div class="sparkle sparkle-2" style="top: 70%; right: 25%;"></div>
                     </div>
 
-                    <!-- KONTEN UTAMA -->
-                    <div class="card-body p-4 p-lg-5 d-flex flex-column flex-md-row align-items-center justify-content-between position-relative" 
-                         style="z-index: 2;">
-                        
-                        <!-- KIRI: Sapaan Personal -->
-                        <div class="text-center text-md-start mb-4 mb-md-0">
-                            <!-- Badge Kreatif (Ganti Lokasi) -->
-                            <div class="d-inline-flex align-items-center bg-white bg-opacity-20 rounded-pill px-3 py-1 mb-3 backdrop-blur border border-white border-opacity-25 shadow-sm">
-                                <i class="fas fa-rocket me-2 text-warning drop-shadow"></i>
-                                <span class="fw-bold letter-spacing-1 small text-white">GROWING TOGETHER</span>
+                    <!-- KONTEN HERO -->
+                    <div class="card-body p-4 p-lg-5 d-flex flex-column flex-md-row align-items-center justify-content-between position-relative" style="z-index: 2;">
+                        <div class="text-center text-md-start mb-4 mb-md-0 flex-grow-1">
+                            <div class="d-inline-flex align-items-center badge-creative mb-3">
+                                <i class="fas fa-rocket me-2 text-warning rocket-icon"></i>
+                                <span class="fw-bold letter-spacing-1 small text-white">GROWING TOGETHER 🌱</span>
                             </div>
-                            
-                            <!-- Sapaan Dinamis -->
-                            <h1 class="display-5 fw-bold mb-2 text-shadow">
-                                <span id="greetingTime">Halo</span>, <span th:text="${auth.name}">User</span>! 👋
+                            <h1 class="display-4 fw-bold mb-2 text-shadow greeting-text">
+                                <span id="greetingTime">Halo</span>, <span th:text="${auth.name}">Dimas Sidabutar</span>! <span class="wave-emoji">👋</span>
                             </h1>
-                            
-                            <!-- Quote -->
-                            <p class="lead mb-0 opacity-90 fw-light" id="dailyQuote">
-                                Rawat tanamanmu hari ini, panen kebahagiaan esok hari.
+                            <p class="lead mb-0 opacity-90 fw-light quote-text" id="dailyQuote">
+                                Mari buat dunia lebih hijau, satu pot setiap hari 🌿
                             </p>
                         </div>
 
-                        <!-- KANAN: CREATOR CARD (Instagram Link) -->
-                        <div class="glass-card text-center p-4 shadow-lg" style="transform: rotate(-3deg);">
-                            <div class="mb-2 position-relative d-inline-block">
-                                <!-- Icon Instagram Besar -->
-                                <i class="fab fa-instagram fa-3x text-white drop-shadow"></i>
-                                <span class="position-absolute top-0 start-100 translate-middle p-1 bg-warning border border-light rounded-circle">
-                                    <span class="visually-hidden">New alerts</span>
-                                </span>
+                        <!-- Instagram Card -->
+                        <div class="creator-card text-center p-4 shadow-lg">
+                            <div class="mb-3 position-relative d-inline-block">
+                                <div class="instagram-icon-wrapper">
+                                    <i class="fab fa-instagram fa-3x instagram-icon"></i>
+                                    <span class="notification-dot"></span>
+                                </div>
                             </div>
-                            
-                            <h5 class="fw-bold mb-0 mt-2">Dimas Sidabutar</h5>
-                            <small class="d-block opacity-75 mb-3">@dimassdbtr</small>
-                            
-                            <a href="https://instagram.com/dimassdbtr" target="_blank" 
-                               class="btn btn-light btn-sm rounded-pill px-4 fw-bold text-success shadow-sm hover-scale">
-                                <i class="fas fa-plus me-1"></i> Follow Owner
+                            <h5 class="fw-bold mb-1 mt-2 text-white">Dimas Sidabutar</h5>
+                            <small class="d-block opacity-90 mb-3 text-white-50">@dimassdbtr</small>
+                            <a href="https://instagram.com/dimassdbtr" target="_blank" class="btn btn-light btn-sm rounded-pill px-4 py-2 fw-bold text-success shadow-sm follow-btn">
+                                <i class="fas fa-plus-circle me-2"></i> Follow Owner
                             </a>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -77,161 +64,236 @@
         <!-- 2. MENU GRID -->
         <div class="row g-4 mb-5 fade-in" style="animation-delay: 0.1s;">
             <div class="col-6 col-md-3">
-                <a th:href="@{/plants}" class="card h-100 border-0 shadow-sm rounded-4 text-decoration-none hover-lift">
+                <a th:href="@{/plants}" class="menu-card card h-100 border-0 shadow-sm rounded-4 text-decoration-none">
                     <div class="card-body text-center p-4">
                         <div class="icon-box bg-success-subtle text-success mb-3 mx-auto shadow-sm"><i class="fas fa-leaf fa-2x"></i></div>
-                        <h6 class="fw-bold text-dark mb-1">Kebunku</h6>
-                        <small class="text-muted">Koleksi</small>
+                        <h6 class="fw-bold text-dark mb-1">Kebunku</h6><small class="text-muted">Koleksi</small>
                     </div>
                 </a>
             </div>
             <div class="col-6 col-md-3">
-                <a th:href="@{/schedule}" class="card h-100 border-0 shadow-sm rounded-4 text-decoration-none hover-lift">
+                <a th:href="@{/schedule}" class="menu-card card h-100 border-0 shadow-sm rounded-4 text-decoration-none">
                     <div class="card-body text-center p-4">
                         <div class="icon-box bg-info-subtle text-info mb-3 mx-auto shadow-sm"><i class="fas fa-calendar-check fa-2x"></i></div>
-                        <h6 class="fw-bold text-dark mb-1">Jadwal</h6>
-                        <small class="text-muted">Agenda</small>
+                        <h6 class="fw-bold text-dark mb-1">Jadwal</h6><small class="text-muted">Agenda</small>
                     </div>
                 </a>
             </div>
             <div class="col-6 col-md-3">
-                <a th:href="@{/doctor}" class="card h-100 border-0 shadow-sm rounded-4 text-decoration-none hover-lift">
+                <a th:href="@{/doctor}" class="menu-card card h-100 border-0 shadow-sm rounded-4 text-decoration-none">
                     <div class="card-body text-center p-4">
                         <div class="icon-box bg-danger-subtle text-danger mb-3 mx-auto shadow-sm"><i class="fas fa-heartbeat fa-2x"></i></div>
-                        <h6 class="fw-bold text-dark mb-1">Dokter</h6>
-                        <small class="text-muted">Diagnosa</small>
+                        <h6 class="fw-bold text-dark mb-1">Dokter</h6><small class="text-muted">Diagnosa</small>
                     </div>
                 </a>
             </div>
             <div class="col-6 col-md-3">
-                <a th:href="@{/encyclopedia}" class="card h-100 border-0 shadow-sm rounded-4 text-decoration-none hover-lift">
+                <a th:href="@{/encyclopedia}" class="menu-card card h-100 border-0 shadow-sm rounded-4 text-decoration-none">
                     <div class="card-body text-center p-4">
                         <div class="icon-box bg-warning-subtle text-warning mb-3 mx-auto shadow-sm"><i class="fas fa-lightbulb fa-2x"></i></div>
-                        <h6 class="fw-bold text-dark mb-1">Tips</h6>
-                        <small class="text-muted">Info</small>
+                        <h6 class="fw-bold text-dark mb-1">Tips</h6><small class="text-muted">Info</small>
                     </div>
                 </a>
             </div>
         </div>
 
-        <!-- 3. STATISTICS SECTION -->
+        <!-- 3. STATS & WISDOM -->
         <div class="row g-4 mb-5 fade-in" style="animation-delay: 0.2s;">
+            
+            <!-- Kiri: Statistik -->
             <div class="col-lg-8">
-                <div class="card border-0 shadow-sm rounded-4 h-100">
-                    <div class="card-header bg-white border-0 pt-4 px-4 d-flex justify-content-between align-items-center">
-                        <h5 class="fw-bold text-dark mb-0"><i class="fas fa-chart-line me-2 text-success"></i>Statistik Kebun</h5>
-                        <span class="badge bg-light text-muted border">Realtime</span>
+                <div class="card border-0 shadow-sm rounded-4 h-100 stats-card">
+                    <div class="card-header bg-gradient-subtle border-0 pt-4 px-4 d-flex justify-content-between align-items-center">
+                        <h5 class="fw-bold text-dark mb-0"><i class="fas fa-chart-line me-2 text-success pulse-icon"></i> Statistik Kebun</h5>
+                        <span class="badge bg-success bg-opacity-10 text-success border border-success"><i class="fas fa-circle pulse-dot me-1"></i> Realtime</span>
                     </div>
                     <div class="card-body p-4">
-                        <!-- Progress 1 -->
-                        <div class="mb-4">
-                            <div class="d-flex justify-content-between mb-1">
-                                <span class="fw-bold small text-secondary">Kesehatan Tanaman</span>
-                                <span class="fw-bold small text-success" th:text="${healthStat} + '%'">0%</span>
+                        <div class="mb-4 progress-item">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="fw-bold small text-secondary"><i class="fas fa-heart text-success me-2"></i>Kesehatan</span>
+                                <span class="badge bg-success-subtle text-success fw-bold" th:text="${healthStat} + '%'">100%</span>
                             </div>
-                            <div class="progress rounded-pill bg-success bg-opacity-10" style="height: 8px;">
-                                <div class="progress-bar bg-success" role="progressbar" th:style="'width: ' + ${healthStat} + '%'"></div>
-                            </div>
-                        </div>
-                        <!-- Progress 2 -->
-                        <div class="mb-4">
-                            <div class="d-flex justify-content-between mb-1">
-                                <span class="fw-bold small text-secondary">Ketersediaan Air</span>
-                                <span class="fw-bold small text-info" th:text="${waterStat} + '%'">0%</span>
-                            </div>
-                            <div class="progress rounded-pill bg-info bg-opacity-10" style="height: 8px;">
-                                <div class="progress-bar bg-info" role="progressbar" th:style="'width: ' + ${waterStat} + '%'"></div>
+                            <div class="progress rounded-pill bg-success bg-opacity-10" style="height: 10px;">
+                                <div class="progress-bar bg-gradient-success rounded-pill" role="progressbar" th:style="'width: ' + ${healthStat} + '%'"></div>
                             </div>
                         </div>
-                        <!-- Progress 3 -->
-                        <div>
-                            <div class="d-flex justify-content-between mb-1">
-                                <span class="fw-bold small text-secondary">Jadwal Tuntas</span>
-                                <span class="fw-bold small text-warning" th:text="${scheduleStat} + '%'">0%</span>
+                        <div class="mb-4 progress-item">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="fw-bold small text-secondary"><i class="fas fa-tint text-info me-2"></i>Air</span>
+                                <span class="badge bg-info-subtle text-info fw-bold" th:text="${waterStat} + '%'">100%</span>
                             </div>
-                            <div class="progress rounded-pill bg-warning bg-opacity-10" style="height: 8px;">
-                                <div class="progress-bar bg-warning" role="progressbar" th:style="'width: ' + ${scheduleStat} + '%'"></div>
+                            <div class="progress rounded-pill bg-info bg-opacity-10" style="height: 10px;">
+                                <div class="progress-bar bg-gradient-info rounded-pill" role="progressbar" th:style="'width: ' + ${waterStat} + '%'"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="fw-bold small text-secondary"><i class="fas fa-tasks text-warning me-2"></i>Jadwal</span>
+                                <span class="badge bg-warning-subtle text-warning fw-bold" th:text="${scheduleStat} + '%'">0%</span>
+                            </div>
+                            <div class="progress rounded-pill bg-warning bg-opacity-10" style="height: 10px;">
+                                <div class="progress-bar bg-gradient-warning rounded-pill" role="progressbar" th:style="'width: ' + ${scheduleStat} + '%'"></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Kanan: Fun Fact -->
+            <!-- Kanan: QUOTE OF THE DAY (PREMIUM) -->
             <div class="col-lg-4">
-                <div class="card border-0 shadow-sm rounded-4 h-100 bg-light">
-                    <div class="card-body p-4 d-flex flex-column justify-content-center text-center">
-                        <div class="mb-3"><i class="fas fa-quote-left fa-2x text-muted opacity-25"></i></div>
-                        <h5 class="fw-bold text-dark mb-2">Quote of the Day</h5>
-                        <p class="text-muted small fst-italic">
-                            "Menanam kebun berarti percaya pada hari esok."
-                        </p>
-                        <small class="fw-bold text-success">- Audrey Hepburn</small>
+                <div class="card border-0 shadow-lg rounded-4 h-100 quote-card-wrapper position-relative overflow-hidden">
+                    
+                    <!-- Dynamic Background Image -->
+                    <div class="quote-bg-image" id="quoteBgImage" style="background-image: url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1948&auto=format&fit=crop');"></div>
+                    <div class="quote-overlay"></div> 
+
+                    <div class="card-body p-4 d-flex flex-column position-relative justify-content-between" style="z-index: 2; height: 100%;">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <span class="badge glass-badge text-uppercase letter-spacing-2">
+                                <i class="fas fa-spa text-light me-1"></i> Wisdom
+                            </span>
+                            <button class="btn btn-sm glass-icon-btn" onclick="generateNewQuote()" title="Ganti Quote">
+                                <i class="fas fa-sync-alt fa-spin-hover"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="quote-content py-3 text-center" id="quoteContainer">
+                            <i class="fas fa-quote-left fs-4 text-white opacity-50 mb-3 d-block"></i>
+                            <p class="fs-4 fw-normal lh-sm text-white font-playfair mb-3 text-shadow-medium" id="quoteText">
+                                "Menanam kebun berarti percaya pada hari esok."
+                            </p>
+                            <div class="divider-custom mx-auto mb-3"></div>
+                            <p class="small text-white opacity-75 fw-bold text-uppercase letter-spacing-1 mb-0" id="quoteAuthor">
+                                Audrey Hepburn
+                            </p>
+                        </div>
+                        
+                        <div class="mt-2 text-center fade-in-up">
+                            <p class="text-white-50 small mb-2 fst-italic" style="font-size: 11px;">Sumber Inspirasi:</p>
+                            <a id="quoteLink" href="#" target="_blank" class="btn btn-glass-premium w-100 rounded-pill">
+                                <span id="sourceName">Baca di Goodreads</span> <i class="fas fa-external-link-alt ms-2 small"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
+        </div>
     </div>
 
-    <!-- JAVASCRIPT: SAPAAN WAKTU & QUOTES -->
+    <!-- JAVASCRIPT -->
     <th:block layout:fragment="others-js">
         <script>
+            // 1. DATABASE QUOTES
+            const wisdomData = [
+                { text: "Menanam kebun berarti percaya pada hari esok.", author: "Audrey Hepburn", source: "Goodreads", url: "https://www.goodreads.com/quotes/6644-to-plant-a-garden-is-to-believe-in-tomorrow", bg: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=600&q=80" },
+                { text: "Lihatlah jauh ke alam, dan kamu akan mengerti segalanya dengan lebih baik.", author: "Albert Einstein", source: "BrainyQuote", url: "https://www.brainyquote.com/quotes/albert_einstein_106912", bg: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=600&q=80" },
+                { text: "Bumi tertawa dalam bunga.", author: "Ralph Waldo Emerson", source: "Literary Devices", url: "https://literarydevices.net/the-earth-laughs-in-flowers/", bg: "https://images.unsplash.com/photo-1490750967868-58cb75069ed6?auto=format&fit=crop&w=600&q=80" },
+                { text: "Kebun membutuhkan perhatian harian seperti persahabatan.", author: "Thomas Jefferson", source: "Monticello.org", url: "https://www.monticello.org/site/research-and-collections/no-occupation-so-delightful-me-culture-earth-quotation", bg: "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=600&q=80" },
+                { text: "Pohon yang soliter, jika tumbuh sama sekali, akan tumbuh kuat.", author: "Winston Churchill", source: "Churchill Society", url: "https://winstonchurchill.org/resources/quotes/", bg: "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=600&q=80" },
+                { text: "Dalam setiap perjalanan dengan alam, seseorang menerima jauh lebih banyak daripada yang ia cari.", author: "John Muir", source: "Sierra Club", url: "https://vault.sierraclub.org/john_muir_exhibit/writings/favorite_quotations.aspx", bg: "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?auto=format&fit=crop&w=600&q=80" },
+                { text: "Kecintaan pada berkebun adalah benih yang sekali ditabur tidak akan pernah mati.", author: "Gertrude Jekyll", source: "Garden Museum", url: "https://gardenmuseum.org.uk/", bg: "https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&w=600&q=80" }
+            ];
+
             document.addEventListener('DOMContentLoaded', function() {
-                // Sapaan Waktu
                 const hour = new Date().getHours();
                 const greetingEl = document.getElementById('greetingTime');
                 let greeting = "Halo";
-
                 if (hour >= 5 && hour < 11) greeting = "Selamat Pagi";
                 else if (hour >= 11 && hour < 15) greeting = "Selamat Siang";
                 else if (hour >= 15 && hour < 19) greeting = "Selamat Sore";
                 else greeting = "Selamat Malam";
-
                 greetingEl.textContent = greeting;
 
-                // Random Quote Header
-                const quotes = [
-                    "Siap merawat kehidupan hari ini?",
-                    "Tanaman bahagia, pemilik bahagia.",
-                    "Satu sentuhan hijau untuk hari yang lebih baik.",
-                    "Mari buat dunia lebih hijau, satu pot setiap hari."
-                ];
-                document.getElementById('dailyQuote').textContent = quotes[Math.floor(Math.random() * quotes.length)];
+                const headerQuotes = [ "Mari buat dunia lebih hijau, satu pot setiap hari 🌿", "Tanaman bahagia, pemilik bahagia 😊", "Satu sentuhan hijau untuk hari yang lebih baik 🍃" ];
+                document.getElementById('dailyQuote').textContent = headerQuotes[Math.floor(Math.random() * headerQuotes.length)];
+
+                generateNewQuote();
             });
+
+            function generateNewQuote() {
+                const container = document.getElementById('quoteContainer');
+                const linkBtn = document.getElementById('quoteLink');
+                const bgImage = document.getElementById('quoteBgImage');
+                
+                container.style.opacity = '0';
+                linkBtn.style.opacity = '0.5';
+                
+                setTimeout(() => {
+                    const randomData = wisdomData[Math.floor(Math.random() * wisdomData.length)];
+                    document.getElementById('quoteText').textContent = `"${randomData.text}"`;
+                    document.getElementById('quoteAuthor').textContent = randomData.author;
+                    document.getElementById('sourceName').textContent = `Baca di ${randomData.source}`;
+                    document.getElementById('quoteLink').href = randomData.url;
+                    
+                    const img = new Image();
+                    img.src = randomData.bg;
+                    img.onload = () => { bgImage.style.backgroundImage = `url('${randomData.bg}')`; };
+
+                    container.style.opacity = '1';
+                    linkBtn.style.opacity = '1';
+                }, 400);
+            }
         </script>
     </th:block>
 
     <!-- CSS STYLING -->
     <th:block layout:fragment="others-css">
         <style>
+            /* ANIMATIONS */
             .fade-in { animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; opacity: 0; transform: translateY(20px); }
             @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
-            
-            .text-shadow { text-shadow: 0 2px 10px rgba(0,0,0,0.15); }
-            .drop-shadow { filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2)); }
-            .letter-spacing-1 { letter-spacing: 1px; }
-            
-            /* Glassmorphism Card for Creator */
-            .glass-card {
-                background: rgba(255, 255, 255, 0.15);
-                backdrop-filter: blur(10px);
-                -webkit-backdrop-filter: blur(10px);
-                border: 1px solid rgba(255, 255, 255, 0.3);
-                border-radius: 20px;
-                min-width: 220px;
-            }
+            .wave-emoji { display: inline-block; animation: wave 2s infinite; transform-origin: 70% 70%; }
+            @keyframes wave { 0%, 100% { transform: rotate(0deg); } 10%, 30% { transform: rotate(14deg); } 20% { transform: rotate(-8deg); } 40% { transform: rotate(-4deg); } 50% { transform: rotate(10deg); } }
+            .sparkle { position: absolute; width: 8px; height: 8px; background: white; border-radius: 50%; opacity: 0; animation: sparkle 3s ease-in-out infinite; }
+            .sparkle-1 { animation-delay: 0s; } .sparkle-2 { animation-delay: 1s; }
+            @keyframes sparkle { 0%, 100% { opacity: 0; transform: scale(0); } 50% { opacity: 0.8; transform: scale(1); } }
 
-            .icon-box { width: 60px; height: 60px; border-radius: 18px; display: flex; align-items: center; justify-content: center; transition: transform 0.3s ease; }
-            
-            .hover-lift { transition: all 0.3s ease; }
-            .hover-lift:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.08) !important; }
-            .hover-lift:hover .icon-box { transform: scale(1.15) rotate(5deg); }
-            
-            .hover-scale { transition: transform 0.2s; }
-            .hover-scale:hover { transform: scale(1.05); }
-            
-            .progress-bar { transition: width 1.5s ease-in-out; }
+            /* HERO */
+            .text-shadow { text-shadow: 0 2px 20px rgba(0,0,0,0.2); }
+            .letter-spacing-1 { letter-spacing: 1.5px; }
+            .floating-circle { position: absolute; border-radius: 50%; background: rgba(255, 255, 255, 0.05); }
+            .badge-creative { background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 50px; padding: 8px 20px; }
+            .rocket-icon { animation: rocket 1.5s ease-in-out infinite; }
+            @keyframes rocket { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-5px); } }
+
+            /* INSTAGRAM */
+            .creator-card { background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(15px); border: 2px solid rgba(255, 255, 255, 0.3); border-radius: 24px; min-width: 240px; transform: rotate(-2deg); transition: all 0.3s ease; }
+            .creator-card:hover { transform: rotate(0deg) translateY(-5px); background: rgba(255, 255, 255, 0.25); }
+            .instagram-icon { 
+                background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+                -webkit-background-clip: text; 
+                background-clip: text; /* FIX CSS WARNING HERE */
+                -webkit-text-fill-color: transparent; 
+            }
+            .notification-dot { position: absolute; top: 0; right: -5px; width: 16px; height: 16px; background: #ffd700; border: 2px solid white; border-radius: 50%; animation: blink 1.5s infinite; }
+            @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+
+            /* MENU */
+            .menu-card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0,0,0,0.12) !important; }
+            .icon-box { width: 70px; height: 70px; border-radius: 20px; display: flex; align-items: center; justify-content: center; }
+            .bg-gradient-subtle { background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); }
+            .pulse-icon { animation: pulse 2s infinite; }
+            @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+            .bg-gradient-success { background: linear-gradient(90deg, #0ba360 0%, #3cba92 100%); }
+            .bg-gradient-info { background: linear-gradient(90deg, #17a2b8 0%, #5dccda 100%); }
+            .bg-gradient-warning { background: linear-gradient(90deg, #ffc107 0%, #ffdb4d 100%); }
+
+            /* WISDOM CARD */
+            .font-playfair { font-family: 'Playfair Display', serif; font-style: italic; }
+            .quote-card-wrapper { background-color: #2d3436; color: white; overflow: hidden; }
+            .quote-bg-image { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; transition: transform 6s ease-out, background-image 0.5s ease-in-out; }
+            .quote-card-wrapper:hover .quote-bg-image { transform: scale(1.1); }
+            .quote-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.3) 100%); z-index: 1; }
+            .text-shadow-medium { text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+            .letter-spacing-2 { letter-spacing: 2px; }
+            .divider-custom { height: 2px; width: 40px; background: rgba(255,255,255,0.6); border-radius: 2px; }
+            .glass-badge { background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.2); padding: 6px 12px; border-radius: 20px; font-weight: 600; }
+            .glass-icon-btn { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(4px); border: none; color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s; }
+            .glass-icon-btn:hover { background: rgba(255,255,255,0.3); transform: rotate(180deg); }
+            .btn-glass-premium { background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.3); color: white; font-weight: 600; letter-spacing: 0.5px; transition: all 0.3s ease; }
+            .btn-glass-premium:hover { background: white; color: #198754; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+            #quoteContainer { transition: opacity 0.4s ease; }
         </style>
     </th:block>
 
